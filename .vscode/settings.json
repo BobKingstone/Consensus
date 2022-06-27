@@ -1,0 +1,9 @@
+{
+    "python.pythonPath": "/home/bob/venv/bin/python",
+    "python.linting.pylintPath": "/home/bob/venv/bin/pylint",
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true,
+    "python.analysis.extraPaths": [
+        "./engine"
+    ]
+}

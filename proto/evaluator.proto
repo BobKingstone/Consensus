@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+service Evaluator {
+  // A simple RPC
+  //
+  // returns an evaluation of the given sample - Anomaly/Benign
+  rpc GetEvaluation(EvaluationRequest) returns (EvaluationDecision) {}
+  
+}
+
+// An Evaluation Request is a message sent to the server.
+//
+// It contains the sample to run the evaluation on.
+message EvaluationRequest {
+	string sample = 1;
+  bytes ndarray = 2;
+}
+
+// An evaluation decision is the response for a given evaluation request.
+//
+// It contains the decision given by the local decision engine.
+message EvaluationDecision {
+  enum Decision {
+    BENIGN = 0;
+	  ANOMALY = 1;
+  }
+  
+  Decision decision = 1;
+  bytes ndarray = 2;
+  int32 experience = 3;
+}
