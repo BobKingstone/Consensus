@@ -32,7 +32,7 @@ class DE_Collaboration():
             individual.init_current(random_state)
             individual.train(5)
             self.generation_costs.append(individual.get_accuracy())
-    
+
 
     def get_trials(self):
         print("--- Trials are computed ---")
@@ -45,7 +45,7 @@ class DE_Collaboration():
             trial.train(5)
             self.trials_costs.append(trial.get_accuracy())
             self.trials.append(trial)
-    
+
 
     def mutate(self, i):
         candidates = self.get_candidates(i)
@@ -88,7 +88,8 @@ class DE_Collaboration():
             if crossover_unit <= self.crossover_rate or par == random_par:
                 trial.weights[par]["current"] = mutant.weights[par]["current"]
         return trial
-    
+
+
     def select(self):
         
         idx = np.where(np.array(self.trials_costs) > np.array(self.generation_costs))[0]
@@ -101,7 +102,7 @@ class DE_Collaboration():
         
         # sort score (descending)
         idx = np.argsort(np.array(fusion))[::-1]
-    
+
         # only select the best individuals of both (generation & trials)
         for i in range(len(self.generation)):
             self.generation[i] = candidate_pool[idx[i]]

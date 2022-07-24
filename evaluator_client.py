@@ -14,7 +14,7 @@
 
 from __future__ import print_function
 from __future__ import annotations
-
+import os
 import logging
 import numpy as np
 import sys
@@ -23,15 +23,16 @@ from DE.DE_Collaboration import DE_Collaboration
 from engine.consensus_engine import ConsensusEngine
 
 parameters = {
-    "agent_1" : {"val_range" : np.array([1, 100]).astype(float), "current" : None},
-    "agent_2" : {"val_range" : np.array([1, 100]).astype(float), "current" : None},
-    "agent_3" : {"val_range" : np.array([1, 100]).astype(float), "current" : None},
-    "agent_4" : {"val_range" : np.array([1, 100]).astype(float), "current" : None},
-    "agent_5" : {"val_range" : np.array([1, 100]).astype(float), "current" : None},
+    "agent_1": {"val_range": np.array([1, 100]).astype(float), "current": None},
+    "agent_2": {"val_range": np.array([1, 100]).astype(float), "current": None},
+    "agent_3": {"val_range": np.array([1, 100]).astype(float), "current": None},
+    "agent_4": {"val_range": np.array([1, 100]).astype(float), "current": None},
+    "agent_5": {"val_range": np.array([1, 100]).astype(float), "current": None},
 }
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
+    os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
     logging.basicConfig()
     process_id = int(sys.argv[1])
     if process_id == 1:

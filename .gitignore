@@ -1,0 +1,8 @@
+# log files
+*.log
+
+# pycahce
+*__pycache__*
+models/
+.pytest_cache/
+.vscode/
